@@ -1,31 +1,56 @@
 import java.util.Scanner;
-import java.util.InputMismatchException;
 
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        while (true) {
+        char a;
+        boolean isValidInput = false;
+
+        do {
             try {
+                
+                System.out.print("Inserisci un carattere: ");
+                a = scanner.nextLine().charAt(0);
 
-                System.out.print("Inserisci un numero intero: ");
-                int numero = scanner.nextInt();
-
-                System.out.println("Hai inserito un numero intero: " + numero);
-                break;
-
-            } catch (InputMismatchException e) {
-
-                System.out.println("Errore: Non hai inserito un numero intero. Riprova.");
-                scanner.next();
+                if (Character.isDigit(a)) {
+                    System.out.println("Hai inserito un carattere numerico: " + a);
+                    isValidInput = true;
+                } else {
+                    System.out.println("Errore: Il carattere inserito non è un numero. Riprova.");
+                }
+            } catch (StringIndexOutOfBoundsException e) {
+                System.out.println("Errore: Non hai inserito un carattere. Riprova.");
             }
-        }
+        } while (!isValidInput);
 
         scanner.close();
     }
 }
 
 /*
- * Scrivere una funzione che provi a dividere un numero per 0 e catturi
- * l'eccezione leggendone il messaggio.
+ * public class Main {
+ * public static void main(String[] args){
+ * try{
+ * char a ='e';
+ * isNumber(a);
+ * System.out.println(" Il carattere  è un numero.");
+ * }catch(NotANumber e ){
+ * System.out.println("ERRORE: Il carattere non è un numero.");
+ * }
+ * }
+ * 
+ * public static void isNumber (char a) throws NotANumber{
+ * if (!Character.isDigit(a)) {
+ * throw new NotANumber();
+ * }
+ * }
+ * 
+ * }
+ * 
+ */
+
+/*
+ * Scrivere una funzione che controlli se un carattere è un numero altrimenti
+ * lanciare una eccezione.
  */
