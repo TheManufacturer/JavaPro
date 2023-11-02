@@ -20,7 +20,7 @@ public class Main {
 
                 } else {
 
-                    System.out.println("Errore: Il carattere inserito non è un numero. Riprova.");
+                    System.out.println("Errore: Il carattere inserito non è un numero. Riprova. --> " + a);
 
                 }
 
