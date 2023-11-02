@@ -1,5 +1,4 @@
 import java.util.Scanner;
-import java.util.InputMismatchException;
 
 public class Main {
     public static void main(String[] args) {
@@ -11,12 +10,12 @@ public class Main {
                 System.out.print("Inserisci un numero intero: ");
                 int numero = scanner.nextInt();
 
-                System.out.println("Hai inserito un numero intero: " + numero);
+                System.out.println("Hai inserito un numero intero: " + numero/0);
                 break;
 
-            } catch (InputMismatchException e) {
+            } catch (ArithmeticException e) {
 
-                System.out.println("Errore: Non hai inserito un numero intero. Riprova.");
+                System.out.println("Errore: Stai dividendo per zero... Riprova.");
                 scanner.next();
             }
         }
@@ -27,7 +26,7 @@ public class Main {
 
 /*
  * 
- * Scrivere una funzione che controlli se un carattere è un numero altrimenti
- * lanciare una eccezione.
+ * Scrivere una funzione che provi a dividere un numero per 0 e catturi
+ * l'eccezione leggendone il messaggio.
  * 
  */
