@@ -2,31 +2,37 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+
         Scanner scanner = new Scanner(System.in);
 
-        while (true) {
-            try {
+        System.out.println("Inserisci un numero da dividere... ");
 
-                System.out.print("Inserisci un numero intero: ");
-                int numero = scanner.nextInt();
+        int numero = scanner.nextInt();
 
-                System.out.println("Hai inserito un numero intero: " + numero/0);
-                break;
-
-            } catch (ArithmeticException e) {
-
-                System.out.println("Errore: Stai dividendo per zero... Riprova.");
-                scanner.next();
-            }
-        }
-
+        divisione(numero);
         scanner.close();
+
+    }
+
+    private static void divisione(int num) {
+
+        try {
+
+            int denomin = 0; // qui mettiamo [zero -->0] per causare l'errore,volendo possiamo gestire anche
+                             // questo
+
+            int divisione = num / denomin;
+
+            System.out.println(divisione);
+
+        } catch (java.lang.ArithmeticException e) {
+            System.out.println("divisione per zero non fattibile");
+
+        }
     }
 }
 
 /*
- * 
  * Scrivere una funzione che provi a dividere un numero per 0 e catturi
  * l'eccezione leggendone il messaggio.
- * 
  */
