@@ -2,26 +2,19 @@
 
 public class Main {
     public static void main(String[] args) {
-        Integer numeratore = null;
-        Integer denominatore = null;
 
-        try {
-            checkNullFunction(numeratore, denominatore);
-        } catch (NullPointerException e) {
-            System.out.println("sembra tu non abbia inserito tutti i dati");
-        }
-    }
-
-    public static void checkNullFunction(Integer numeratore, Integer denominatore) {
-        if (numeratore == null || denominatore == null) {
-            throw new NullPointerException();
-        }
     }
 }
 
 /*
- * Scrivere una funzione che accetti in input un numeratore e un denominatore
- * Controlli che il numeratore e il denominatore non siano null
- * Usare la funzione appena scritta in due blocchi di codice dove si cattura
- * l'eventuale eccezione.
+ * Scrivere una funzione che accetti in input 2 int e ne stampi la somma
+ * Scrivere una funzione che accetti in input 1 char lo stampi
+ * Scrivere una funzione che accetti in input 2 Integer e ne stampi la somma
+ * Scrivere una funzione che accetti in input 1 Character lo stampi
+ * 
+ * Scrivere un un valore primitivo per int, double e char e fare autoboxing
+ * 
+ * Scrivere un oggetto per Integer, Double e Character e fare Unboxing
+ * 
+ * Usare le funzioni scritte con i valori creati
  */
