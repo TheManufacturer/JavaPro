@@ -11,13 +11,15 @@ public class Main {
     private static void funzioneHashSet(Scanner scan) {
         HashSet <String> set = new HashSet<>();
         System.out.println("Quanti elementi vuoi inserire? (Lavoriamo con le stringe)");
-        int grandezza = scan.nextInt();
-        for (int i = 0; i<= grandezza; i++ ){
+        int grandezza = Integer.parseInt(scan.next());
+        
+        for (int i = 0; i< grandezza; i++ ){
 
             System.out.println("Inserisci Stringa");
-            
-            set.add(scan.nextLine());
+            set.add(scan.next());
+
         }
+
         System.out.println("La grandezza del nostro HashSet 'set' è : " + set.size() );
         System.out.println("Il nostro set contiene : " + set);
     }
