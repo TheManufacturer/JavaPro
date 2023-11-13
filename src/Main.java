@@ -28,11 +28,11 @@ public class Main {
 
         for (int i = 0; i < n; i++) {
             System.out.println("Che nome vuoi aggiungere...? ");
-            String nome= scan.next();
-            
+            String nome = scan.next();
+
             System.out.println("Inserisci l'età... ");
-            int eta= scan.nextInt();
-            
+            int eta = scan.nextInt();
+
             list.add(new Student(nome, eta));
 
         }
@@ -41,6 +41,16 @@ public class Main {
             listSt.printInfo();
 
         }
+        System.out.println();
+
+        // qui compariamo gli elementi della lista e stampiamo
+        list.sort((s1, s2) -> Integer.compare(s1.getAge(), s2.getAge()));
+        
+        for (Student listSt : list) {
+            listSt.printInfo();
+
+        }
+
         scan.close();
 
     }
