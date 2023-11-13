@@ -1,3 +1,4 @@
+import java.util.Scanner;
 import java.util.ArrayList;
 
 import Package.Student;
@@ -5,6 +6,7 @@ import Package.Student;
 public class Main {
     public static void main(String[] args) {
         ArrayList<Student> list = new ArrayList<>();
+        Scanner scan = new Scanner(System.in);
 
         // andiamo ora a stampare con un'iterazione tutta la lista attraverso un metodo
 
@@ -19,29 +21,39 @@ public class Main {
             }
         }
 
-        // aggiungiamo 4 elementi alla collezione
-        list.add(new Student("Antonio", 24));
-        list.add(new Student("Franzisco", 29));
-        list.add(new Student("Gennaflex", 23));
+        // aggiungiamo n elementi elementi alla collezione
+
+        System.out.println("Quanti elementi vuoi aggiungere alla tua <list> ?");
+        int n = scan.nextInt();
+
+        for (int i = 0; i < n; i++) {
+            System.out.println("Che nome vuoi aggiungere...? ");
+            String nome= scan.next();
+            
+            System.out.println("Inserisci l'età... ");
+            int eta= scan.nextInt();
+            
+            list.add(new Student(nome, eta));
+
+        }
 
         for (Student listSt : list) {
             listSt.printInfo();
 
         }
+        scan.close();
 
     }
 
 }
 
 /*
- * Creare una classe Student che accenti nel costruttore il parametro name
- * (String e age Int)
+ * Creare una classe Student che accenti nel costruttore i parametri (String
+ * name, int age)
  * 
  * In questa classe avere i metodi pubblici per ottenere le informazioni.
  * 
- * Creare un ArrayList con n elementi e stamparlo in console.
+ * Creare un ArrayList con 12 elementi e stamparlo in console.
  * 
- * Aggiungere 4 elementi alla collezione e stampare la collezione aggiornata in
- * console
- * 
+ * Mettere in ordine la collezione e stampare il risultato
  */
