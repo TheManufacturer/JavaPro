@@ -1,50 +1,29 @@
-import java.util.LinkedList;
-import Package.Fruit;
+import java.util.*;
 
-public class Main{
-
+public class Main {
     public static void main(String[] args) {
-        LinkedList<Fruit> list = new LinkedList<>();
 
-        list.add(new Fruit("Banana"));
-        list.add(new Fruit("Mango"));
-        list.add(new Fruit("Kiwi"));
-        list.add(new Fruit("Mela"));
-        list.add(new Fruit("Pera"));
-        
-        //Stampiamo attraverso il ciclo
+        Map<Integer, String> hashMap1 = new HashMap<>();
 
-        for(Fruit listFruit : list){
-            listFruit.printInfo();
-        }
+        hashMap1.put(2, "b");
+        hashMap1.put(1, "a");
+        hashMap1.put(3, "c");
 
-        //aggiungiamo all'inizio
-        list.addFirst(new Fruit("Fico"));
+        System.out.println("HashMap1 : " + hashMap1);
 
-        //aggiungiamo alla fine
-        list.addLast(new Fruit("Ananas"));
+        Map<Integer, String> hashMap2Imm = Map.of(2, "b", 1, "a", 3, "c");
+        System.out.println("HashMap2 Immutabile : " + hashMap2Imm);
 
-        //Ristampiamo per vedere il risultato
-        
-        for(Fruit listFruit : list){
-            listFruit.printInfo();
-        }
-
+        Map<Integer, String> hashMap3 = Map.ofEntries(
+                new AbstractMap.SimpleEntry<>(1, "a"),
+                new AbstractMap.SimpleEntry<>(2, "b"),
+                new AbstractMap.SimpleEntry<>(3, "c"));
+        System.out.println("HashMap3 : " + hashMap3);
     }
-
 }
 
-
-
-
 /*
- * Creare una classe Fruit che accenti nel costruttore il parametro name (String)
- * 
- * In questa classe avere i metodi pubblici per ottenere le informazioni.
- * 
- * Creare un LinkedList con elementi e stamparlo in console.
- * 
- * Aggiungere un elemento al primo posto della lista e uno all'ultimo
- * 
- * Stampare la collezione aggiornata
+ * Creare 3 hashmap con 3 differenti metodi di inizializzazione
+ *
+ * Stampare il contenuto.
  */
