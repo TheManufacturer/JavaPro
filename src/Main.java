@@ -18,6 +18,7 @@ public class Main {
                 new AbstractMap.SimpleEntry<>(1, "a"),
                 new AbstractMap.SimpleEntry<>(2, "b"),
                 new AbstractMap.SimpleEntry<>(3, "c"));
+                
         System.out.println("HashMap3 : " + hashMap3);
     }
 }
