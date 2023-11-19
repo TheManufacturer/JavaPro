@@ -1,22 +1,26 @@
-import Package.Punto;
+import java.time.OffsetDateTime;
+import java.time.ZoneOffset;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 
 public class Main {
     public static void main(String[] args) {
-        Punto punto1 = new Punto(1, 5);
+        OffsetDateTime esercizioDate = OffsetDateTime.of(2002, 03, 01, 13, 00, 00, 0, ZoneOffset.UTC);
 
-        Punto punto2 = new Punto(6, 7);
+        String formatDataFull = esercizioDate.format(DateTimeFormatter.ofLocalizedDate(FormatStyle.FULL));
+        System.out.println("La data richiesta nel formato FULL : " + formatDataFull);
 
-        System.out.println("il record 1 : " + punto1);
-        System.out.println("il record 2 : " + punto2);
+        String formatDataMedium = esercizioDate.format(DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM));
+        System.out.println("La data richiesta nel formato MEDIUM : " + formatDataMedium);
 
-        if (punto1.equals(punto2)) {
-            System.out.println("Sono uguali");
-        } else {
-            System.out.println("Non sonn uguali. ");
-        }
+        String formatDataShort = esercizioDate.format(DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT));
+        System.out.println("La data richiesta nel formato SHORT : " + formatDataShort);
+
     }
 }
 
 /*
- * Definisci un oggetto Record che rappresenti un Punto con le coordinate x & y
+ * Crea un oggetto OffsetDateTime da questa stringa 2002-03-01T13:00:00Z
+ * Formatta la data ottenuta in FULL, MEDIUM e SHORT
+ * Stampa le varie versioni
  */
