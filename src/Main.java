@@ -1,50 +1,51 @@
 import java.time.OffsetDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
-import java.util.Locale;
 
 public class Main {
     public static void main(String[] args) {
 
-        // Crea un oggetto data da questa stringa 2023-03-01T13:00:00Z + Stampa per confronto
+        // Crea un oggetto data da questa stringa 2023-03-01T13:00:00Z + Stampa
 
         OffsetDateTime dateConv = OffsetDateTime.parse("2023-03-01T13:00:00Z");
 
         String dataConvertita = dateConv.format(DateTimeFormatter.ofLocalizedDate(FormatStyle.FULL));
-
         System.out.println("\n La Stringa --> 2023-03-01T13:00:00Z diventa : " + dataConvertita);
 
+        // Crea un secondo oggetto data da questa stringa 2024-03-01T13:00:00Z + Stampa
 
-        // Aggiungi 7 giorni + stampa
+        OffsetDateTime dateConv2 = OffsetDateTime.parse("2024-03-01T13:00:00Z");
 
-        System.out.println("\n Il giorno aumentato di 7: " + dateConv.plusDays(7));
+        String dataConvertita2 = dateConv2.format(DateTimeFormatter.ofLocalizedDate(FormatStyle.FULL));
+        System.out.println("\n La Stringa --> 2023-03-01T13:00:00Z diventa : " + dataConvertita2);
 
-        // Aggiungi un mese (con MMMM è esteso) + stampa
+        // Verificare che la prima data è precedente alla seconda + stampa
 
-        System.out.println("\n Il mese aumentato di 1 : " + dateConv.plusMonths(1));
+        boolean date1Before2 = dateConv.isBefore(dateConv2);
+        System.out.println("\n La prima data è precedente alla seconda ? " + date1Before2);
 
-        // Aggiungi un anno anno (yyyy) + stampa
+        // Verificare che la seconda data è successiva alla prima + stampa
 
-        OffsetDateTime dataRevisionataY = dateConv.plusYears(1);
-        System.out.println("\n L'anno aumentato di 1 : " + dataRevisionataY);
+        boolean date2After1 = dateConv2.isAfter(dateConv);
+        System.out.println("\n La seconda data è successiva alla prima ? " + date2After1);
+        
+        // Verificare che le due date sono uguali ad ora + stampa
 
-        String dataYearFormattata = dataRevisionataY.format(DateTimeFormatter.ofPattern("yyyy"));
-
-        System.out.println("\n L'anno aumentato di 1 (formattato): " + dataYearFormattata);
-
-        // Stampa il risultato localizzata per l'Italia
-        String dataLocalizzata = dateConv.format(DateTimeFormatter.ofPattern("yyyy", Locale.ITALY));
-        System.out.println("\n Data in formato ITALY : " + dataLocalizzata);
-
-
-
+        boolean equalDate = dateConv.isEqual(dateConv2);
+        System.out.println("\n Le date risultano uguali ? " + equalDate);
     }
 }
 
 /*
  * Crea un oggetto data da questa stringa 2023-03-01T13:00:00Z
- * aggiungi un anno
- * sottrai un mese
- * aggiungi 7 giorni
- * Stampa il risultato localizzata per l'Italia
+ * 
+ * Crea un secondo oggetto data da questa stringa 2024-03-01T13:00:00Z
+ * 
+ * Verificare che la prima data è precedente alla seconda
+ * 
+ * Verificare che la seconda data è successiva alla prima
+ * 
+ * Verificare che le due date sono uguali ad ora
+ * 
+ * Stampa il risultato
  */
