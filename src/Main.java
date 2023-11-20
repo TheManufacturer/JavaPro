@@ -1,64 +1,46 @@
 public class Main {
     public static void main(String[] args) {
 
-        // Array di numeri e stringhe
-        int[] arr = { 15, 59, 45, 75, 64, 99, 78 };
-
+        int[] arr = { 45, 78, 85, 33, 75, 99, 41 };
         String[] arrStrings = { "ciao", "caro", "come", "stai" };
-        
-        int valCheck = 4;
+        int checkString = 4;
 
-        // Array di docenti
-        Docente docente1 = new Docente("Francesco", "DelNuovo", 1, 26);
-        Docente docente2 = new Docente("Giovanni", "Dellintermedio", 2, 26);
-        Docente docente3 = new Docente("Mario", "NelFrattempo", 4, 26);
-        Docente docente4 = new Docente("Antonio", "Dopo", 3, 26);
-        Docente docente5 = new Docente("Simone", "Prima", 5, 26);
-        
-        Docente[] listaDocentiUni = { docente1, docente2, docente3, docente4, docente5 };
+        Docente docente1= new Docente("g", "zeta", 001, 25);
+        Docente docente2= new Docente("a", "ypsilon", 002, 26);
+        Docente docente3= new Docente("b", "teta", 003, 45);
+        Docente docente4= new Docente("c", "beta", 004, 40);
 
-        // Creazione dell'oggetto Universita
-        Universita universita = new Universita(listaDocentiUni);
+        Docente[] listaDocenti = {docente1, docente2, docente3, docente4};
 
-        // Accesso alla lista di docenti dell'università
-        Docente[] listaDocenti = universita.getListaDocenti();
-        for (Docente docente : listaDocenti) {
-            System.out.println(
-                "Docente: " + docente.getNome() + " " + docente.getCognome() +
-                ", Età: " + docente.getEta()
-            );
-        }
+        Universita universita = new Universita(listaDocenti);
 
-        // Calcolo dell'età minima tra i docenti dell'università
-        Universita.etaMinDocente();
+        System.out.println("L'età minima della lista docenti è : " + universita.etaMin());
 
-        // Altre operazioni
+
         metodoMaxMin(arr);
         metodoSommaPari(arr);
-        metodoCheckString(arrStrings, valCheck);
+        metodoCheckStrings(arrStrings, checkString);
     }
 
-    public static void metodoCheckString(String[] arrStrings, int valCheck) {
-        boolean checkString = false;
-
-        for (int i = 0; i < arrStrings.length; i++) {
-
-            if (arrStrings[i].length() == valCheck) {
-                checkString = true;
+    public static void metodoCheckStrings(String[] arrStrings, int checkString){
+        boolean check = false;
+        for(int i = 0; i<arrStrings.length;i++){
+            if(arrStrings[i].length()== checkString){
+                check = true;
             }
         }
-        System.out.println("Il valore è di uguale lunghezza ? " + checkString);
+        System.out.println("Il check è positivo ? : " + check);
+
     }
 
     public static void metodoSommaPari(int[] arr) {
-        int somma = 0;
+        int sommaP = 0;
         for (int i = 0; i < arr.length; i++) {
             if (arr[i] % 2 == 0) {
-
-                somma += arr[i];
+                sommaP += arr[i];
             }
         }
-        System.out.println("La somma dei pari è : " + somma);
+        System.out.println("La somma dei numeri pari dell'array è : " + sommaP);
     }
 
     public static void metodoMaxMin(int[] arr) {
@@ -72,7 +54,7 @@ public class Main {
                 max = arr[i];
             }
         }
-        System.out.println("Il max della lista : " + max + "\n Il min della lista : " + min);
+        System.out.println("\n il max dell'array è : " + max + "\n il minimo dell'array è : " + min);
     }
 
 }

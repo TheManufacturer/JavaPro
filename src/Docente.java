@@ -4,6 +4,7 @@ public class Docente{
     private int codice;
     private int eta;
 
+
     public Docente(String nome, String cognome, int codice, int eta) {
         this.nome = nome;
         this.cognome = cognome;
@@ -11,37 +12,28 @@ public class Docente{
         this.eta = eta;
     }
 
+
     public String getNome() {
         return nome;
     }
+
 
     public String getCognome() {
         return cognome;
     }
 
+
     public int getCodice() {
         return codice;
     }
+
 
     public int getEta() {
         return eta;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
+    
 
-    public void setCognome(String cognome) {
-        this.cognome = cognome;
-    }
-
-    public void setCodice(int codice) {
-        this.codice = codice;
-    }
-
-    public void setEta(int eta) {
-        this.eta = eta;
-    }
     
     
 }
