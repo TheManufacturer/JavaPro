@@ -1,60 +1,63 @@
 public class Main {
     public static void main(String[] args) {
 
-        int[] arr = { 45, 78, 85, 33, 75, 99, 41 };
-        String[] arrStrings = { "ciao", "caro", "come", "stai" };
+        int[] arrInt = { 25, 65, 45, 78, 79, 99, 35 };
+
+        String[] arrString = { "Hello", "World", "Ciao", "Cosa", "fai" };
         int checkString = 4;
 
-        Docente docente1= new Docente("g", "zeta", 001, 25);
-        Docente docente2= new Docente("a", "ypsilon", 002, 26);
-        Docente docente3= new Docente("b", "teta", 003, 45);
-        Docente docente4= new Docente("c", "beta", 004, 40);
+        Docente docente1 = new Docente("g", "zeta", 001, 25);
+        Docente docente2 = new Docente("a", "ypsilon", 002, 26);
+        Docente docente3 = new Docente("b", "teta", 003, 45);
+        Docente docente4 = new Docente("c", "beta", 004, 40);
 
-        Docente[] listaDocenti = {docente1, docente2, docente3, docente4};
-
+        Docente[] listaDocenti = { docente1, docente2, docente3, docente4 };
         Universita universita = new Universita(listaDocenti);
+        
+        universita.etaMinimaDoc(listaDocenti);
 
-        System.out.println("L'età minima della lista docenti è : " + universita.etaMin());
+        metodoMaxMin(arrInt);
 
-
-        metodoMaxMin(arr);
-        metodoSommaPari(arr);
-        metodoCheckStrings(arrStrings, checkString);
+        metodoSommaPari(arrInt);
+        
+        metodoCheckString(arrString, checkString);
     }
 
-    public static void metodoCheckStrings(String[] arrStrings, int checkString){
+    public static void metodoCheckString(String[] arrStrings, int checkString) {
         boolean check = false;
-        for(int i = 0; i<arrStrings.length;i++){
-            if(arrStrings[i].length()== checkString){
+
+        for (int i = 0; i < arrStrings.length; i++) {
+            if (arrStrings[i].length() == checkString) {
                 check = true;
             }
         }
-        System.out.println("Il check è positivo ? : " + check);
-
+        System.out.println("La ricerca è andata a buon fine ? " + check);
     }
 
-    public static void metodoSommaPari(int[] arr) {
-        int sommaP = 0;
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] % 2 == 0) {
-                sommaP += arr[i];
+    public static void metodoSommaPari(int[] arrInt) {
+        int sommaPari = 0;
+
+        for (int i = 0; i < arrInt.length; i++) {
+            if (arrInt[i] % 2 == 0) {
+                sommaPari += arrInt[i];
             }
         }
-        System.out.println("La somma dei numeri pari dell'array è : " + sommaP);
+        System.out.println("La somma dei numeri pari è : " + sommaPari);
     }
 
-    public static void metodoMaxMin(int[] arr) {
-        int max = arr[0];
-        int min = arr[0];
-        for (int i = 1; i < arr.length; i++) {
-            if (arr[i] < min) {
-                min = arr[i];
+    public static void metodoMaxMin(int[] arrInt) {
+        int max = arrInt[0];
+        int min = arrInt[0];
+        for (int i = 1; i < arrInt.length; i++) {
+            if (arrInt[i] < min) {
+                min = arrInt[i];
             }
-            if (arr[i] > max) {
-                max = arr[i];
+            if (arrInt[i] > max) {
+                max = arrInt[i];
             }
         }
-        System.out.println("\n il max dell'array è : " + max + "\n il minimo dell'array è : " + min);
+        System.out.println("\n Il min dei valori dell'array è : " + min);
+        System.out.println("\n Il max dei valori dell'array è : " + max);
     }
 
 }

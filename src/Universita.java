@@ -1,28 +1,21 @@
 public class Universita {
-
-    private static Docente[] listaDocenti;
+    Docente[] listaDocenti;
 
     public Universita(Docente[] listaDocenti) {
-        Universita.listaDocenti = listaDocenti;
+        this.listaDocenti = listaDocenti;
     }
 
-    public static Docente[] getListaDocenti() {
-        return listaDocenti;
-    }
-
-    public static int etaMin(){
-        int etaMin = listaDocenti[0].getEta();
-
-        for(int i = 1; i<listaDocenti.length; i++){
-
-            if(listaDocenti[i].getEta() < etaMin){
-
-                etaMin = listaDocenti[i].getEta();
+    public void etaMinimaDoc(Docente[] listaDocenti) {
+        int etaMinDoc = listaDocenti[0].getEta();
+        for (int i = 0; i < listaDocenti.length; i++) {
+            if (listaDocenti[i].getEta() < etaMinDoc) {
+                etaMinDoc=listaDocenti[i].getEta();
             }
         }
+        System.out.println("L'età più bassa è : " + etaMinDoc);
 
-        return etaMin;
     }
+
 }
 
 /*
