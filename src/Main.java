@@ -3,7 +3,7 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
 
 public class Main {
-    public void main(String[] args) {
+    public static void main(String[] args) {
 
         // Crea un oggetto data da questa stringa 2023-03-01T13:00:00Z + Stampa
 
@@ -31,17 +31,17 @@ public class Main {
         System.out.println("\n Le date inserite sono uguali ? " + metodoEqualDate(dateConv, dateConv2));
     }
 
-    public boolean metodoBefore(OffsetDateTime dateConv, OffsetDateTime dateConv2) {
+    public static boolean metodoBefore(OffsetDateTime dateConv, OffsetDateTime dateConv2) {
         boolean date1Before2 = dateConv.isBefore(dateConv2);
         return date1Before2;
     }
 
-    public boolean metodoAfter(OffsetDateTime dateConv, OffsetDateTime dateConv2) {
+    public static boolean metodoAfter(OffsetDateTime dateConv, OffsetDateTime dateConv2) {
         boolean date2After1 = dateConv2.isAfter(dateConv);
         return date2After1;
     }
 
-    public boolean metodoEqualDate(OffsetDateTime dateConv, OffsetDateTime dateConv2){
+    public static boolean metodoEqualDate(OffsetDateTime dateConv, OffsetDateTime dateConv2){
         boolean dateEqual = dateConv.equals(dateConv2);
         return dateEqual;
     }
