@@ -1,78 +1,41 @@
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.assertFalse;
-
+import static org.junit.Assert.assertEquals;
 import java.time.OffsetDateTime;
-
+import java.time.format.DateTimeFormatter;
 import org.junit.Test;
 
 public class MainTest {
 
-    Main mainT = new Main();
-
     @Test
-    public void testFirstMethod() {
-        OffsetDateTime dateConv = OffsetDateTime.parse("2023-03-01T13:00:00Z");
-        OffsetDateTime dateConv2 = OffsetDateTime.parse("2024-03-01T13:00:00Z");
+    public void testDateConversion() {
+        // Input: data in formato stringa
+        String inputDate = "2023-03-01T13:00:00Z";
 
-        assertTrue(mainT.metodoAfter(dateConv, dateConv2));
+        // Creazione di un oggetto OffsetDateTime dal formato stringa
+        OffsetDateTime dateConv = OffsetDateTime.parse(inputDate);
 
-    }
+        // Formattazione della data
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MMMM yyyy");
+        String actualFormattedDate = dateConv.format(formatter);
 
-    @Test
-    public void testSecondMethod() {
-        OffsetDateTime dateConv = OffsetDateTime.parse("2023-03-01T13:00:00Z");
-        OffsetDateTime dateConv2 = OffsetDateTime.parse("2024-03-01T13:00:00Z");
-
-        assertTrue(mainT.metodoBefore(dateConv, dateConv2));
-
+        // Verifica che la data formattata sia quella attesa
+        String expectedFormattedDate = "01 marzo 2023";
+        assertEquals("Error with Format Date", expectedFormattedDate, actualFormattedDate);
     }
 
     @Test
-    public void testThirdMethod() {
-        OffsetDateTime dateConv = OffsetDateTime.parse("2023-03-01T13:00:00Z");
-        OffsetDateTime dateConv2 = OffsetDateTime.parse("2024-03-01T13:00:00Z");
+    public void testDateSecondConversion() {
+        // Input: data in formato stringa
+        String inputDate = "2024-02-25T13:00:00Z";
 
-        assertFalse(mainT.metodoEqualDate(dateConv, dateConv2));
+        // Creazione di un oggetto OffsetDateTime dal formato stringa
+        OffsetDateTime dateConv = OffsetDateTime.parse(inputDate);
 
-    }
- 
-}
+        // Formattazione della data
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MMMM yyyy");
+        String actualFormattedDate = dateConv.format(formatter);
 
-/* 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
-
-import java.time.OffsetDateTime;
-
-import org.junit.Test;
-
-public class MainTest {
-
-    Main mainT = new Main();
-
-    @Test
-    public void testFirstMethod() {
-        OffsetDateTime dateConv = OffsetDateTime.parse("2023-03-01T13:00:00Z");
-        OffsetDateTime dateConv2 = OffsetDateTime.parse("2024-03-01T13:00:00Z");
-
-        assertTrue(mainT.metodoAfter(dateConv, dateConv2));
-
-    }
-        @Test
-    void testSecondMethod() {
-        OffsetDateTime dateConv = OffsetDateTime.parse("2023-03-01T13:00:00Z");
-        OffsetDateTime dateConv2 = OffsetDateTime.parse("2024-03-01T13:00:00Z");
-
-        assertTrue(mainT.metodoBefore(dateConv, dateConv2));
-
-    }
-        @Test
-    void testThirdMethod() {
-        OffsetDateTime dateConv = OffsetDateTime.parse("2023-03-01T13:00:00Z");
-        OffsetDateTime dateConv2 = OffsetDateTime.parse("2024-03-01T13:00:00Z");
-
-        assertFalse(mainT.metodoEqualDate(dateConv, dateConv2));
-
+        // Verifica che la data formattata sia quella attesa
+        String expectedFormattedDate = "25 febbraio 2024";
+        assertEquals("Error with Format Date", expectedFormattedDate, actualFormattedDate);
     }
 }
- */
