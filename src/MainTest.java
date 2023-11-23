@@ -1,78 +1,40 @@
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.assertFalse;
-
-import java.time.OffsetDateTime;
-
-import org.junit.Test;
-
-public class MainTest {
-
-    Main mainT = new Main();
-
-    @Test
-    public void testFirstMethod() {
-        OffsetDateTime dateConv = OffsetDateTime.parse("2023-03-01T13:00:00Z");
-        OffsetDateTime dateConv2 = OffsetDateTime.parse("2024-03-01T13:00:00Z");
-
-        assertTrue(mainT.metodoAfter(dateConv, dateConv2));
-
-    }
-
-    @Test
-    public void testSecondMethod() {
-        OffsetDateTime dateConv = OffsetDateTime.parse("2023-03-01T13:00:00Z");
-        OffsetDateTime dateConv2 = OffsetDateTime.parse("2024-03-01T13:00:00Z");
-
-        assertTrue(mainT.metodoBefore(dateConv, dateConv2));
-
-    }
-
-    @Test
-    public void testThirdMethod() {
-        OffsetDateTime dateConv = OffsetDateTime.parse("2023-03-01T13:00:00Z");
-        OffsetDateTime dateConv2 = OffsetDateTime.parse("2024-03-01T13:00:00Z");
-
-        assertFalse(mainT.metodoEqualDate(dateConv, dateConv2));
-
-    }
  
-}
-
-/* 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertEquals;
 
 import java.time.OffsetDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 
 import org.junit.Test;
 
 public class MainTest {
 
     Main mainT = new Main();
+    OffsetDateTime dateConv = OffsetDateTime.parse("2002-03-01T13:00:00Z"); 
 
     @Test
-    public void testFirstMethod() {
-        OffsetDateTime dateConv = OffsetDateTime.parse("2023-03-01T13:00:00Z");
-        OffsetDateTime dateConv2 = OffsetDateTime.parse("2024-03-01T13:00:00Z");
+    public void testFirstPrint() { 
 
-        assertTrue(mainT.metodoAfter(dateConv, dateConv2));
-
-    }
-        @Test
-    void testSecondMethod() {
-        OffsetDateTime dateConv = OffsetDateTime.parse("2023-03-01T13:00:00Z");
-        OffsetDateTime dateConv2 = OffsetDateTime.parse("2024-03-01T13:00:00Z");
-
-        assertTrue(mainT.metodoBefore(dateConv, dateConv2));
+        String expected = "01/03/02" ; 
+        String actual  = dateConv.format(DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT));
+        assertEquals("Error with Short Format Date",  expected,  actual);
 
     }
-        @Test
-    void testThirdMethod() {
-        OffsetDateTime dateConv = OffsetDateTime.parse("2023-03-01T13:00:00Z");
-        OffsetDateTime dateConv2 = OffsetDateTime.parse("2024-03-01T13:00:00Z");
+    @Test
+    public void testSecondPrint() { 
 
-        assertFalse(mainT.metodoEqualDate(dateConv, dateConv2));
+        String expected = "1 mar 2002" ; 
+        String actual  = dateConv.format(DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM));
+        assertEquals("Error with Short Format Date",  expected,  actual);
 
     }
-}
- */
+    @Test
+    public void testThirdPrint() { 
+
+        String expected = "venerdì 1 marzo 2002" ; 
+        String actual  = dateConv.format(DateTimeFormatter.ofLocalizedDate(FormatStyle.FULL));
+        assertEquals("Error with Short Format Date",  expected,  actual);
+
+    } 
+ 
+} 
