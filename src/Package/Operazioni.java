@@ -1,3 +1,4 @@
+package Package;
     public enum Operazioni{
         ADDIZIONE,
         SOTTRAZIONE,
