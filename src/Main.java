@@ -1,30 +1,25 @@
 public class Main {
-    public static void main(String[] args) {
-        System.out.println(checkString("Questa è una stringa"));
+    public static void main(String[] args) { 
+        Shape cerchio = Factory.getShape(Enum1.CERCHIO);
+        cerchio.draw();
+        Shape quadrato = Factory.getShape(Enum1.QUADRATO);
+        quadrato.draw();
+        Shape triangolo = Factory.getShape(Enum1.TRIANGOLO);
+        triangolo.draw();
     }
 
-    private static String checkString(String value) {
-        return value.length() >= 10 ? "Lunghezza maggiore o uguale di 10" : "Lunghezza minore di 10";
-    }
 }
 
 /*
- * Copia il seguente programma Java e sostituisci il costrutto if-else con
- * l'operatore ternario
+ * Crea un'interfaccia Shape e un metodo draw, crea 2 o più classi che
+ * implementino Shape.
  * 
- * public class Module01 {
- * public static void main(String[] args) {
- * System.out.println(checkString("Questa è una stringa"));
- * }
+ * Cre una enum che abbia tutti i tipi di shape che hai creato ( cerchio,
+ * rettangolo etc etc)
  * 
- * private static String checkString(String value) {
- * String result;
- * if (value.length() >= 10) {
- * result = "Lunghezza maggiore o uguale di 10";
- * } else {
- * result = "Lunghezza minore di 10";
- * }
- * return result;
- * }
+ * Crea una factory class che abbia un metodo che ritorni la forma corretta
+ * (shape) in base all'enum in input.
+ * 
+ * Stampa a video il risultato della funzione draw di ogni shape creata
  * }
  */
