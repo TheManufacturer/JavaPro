@@ -1,31 +1,30 @@
-public class Main {
+public class Main{   
     public static void main(String[] args) {
+        
+        // Ottenere l'istanza unica di User
+        User user1 = User.getInstance();
+        user1.stampaInformazioni();
 
-        BuilderPersona personaBuilder1 = new BuilderPersona("Tobi", "SiLui");
-        personaBuilder1.setEta(16);
+        // Ottenere nuovamente l'istanza unica di User
+        User user2 = User.getInstance();
 
-        BuilderPersona personaBuilder2 = new BuilderPersona("Gon", "QuelloDiHxH");
-        personaBuilder2.setEta(30);
-        personaBuilder2.setIndirizzo("Foglia");
+        // Cambio delle informazioni del secondo oggetto
+        user2.setNome("Francesco");
+        user2.setEta(25);
 
-        Persona persona1 = personaBuilder1.buildPersona();
-        Persona persona2 = personaBuilder2.buildPersona();
-
-        System.out.println("\n persona1 : " + persona1);
-        System.out.println("\n persona2 : " + persona2);
-        System.out.println("\n");
-    } 
+        // Stampare le informazioni del secondo oggetto
+        user2.stampaInformazioni();
+    }
 }
 
 /*
- * Crea una classe Persona con i campi firstName, lastName, age e address, i
- * getter and i setter
+ * Crea una classe User che abbia i parametri privati nome ed età e i getter e setter.
  * 
- * Il costruttore accetterà un Builder in input
+ * All'interno di User ci sarà anche una funzione che stampi a video le
+ * informazioni di età e il nome.
  * 
- * Creare una classe Builder che attraverso il costruttore e dei metodi
- * specifici (tranne nome e cognome, gli altri campi sono opzionali) per
- * costruire l'oggetto Persona.
+ * Creare 2 oggetti User di cui creerà un'istanza.
  * 
- * Creare due oggetti Person e stamparli a video
+ * Del primo si stamperanno le informazioni di default, 
+ * del secondo si cambieranno le informazioni e poi si stamperanno a video
  */
