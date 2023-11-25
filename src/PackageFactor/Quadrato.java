@@ -1,4 +1,5 @@
-    public class Quadrato implements Shape {
+package PackageFactor;
+   public class Quadrato implements Shape {
     private String nome;
     private int numLati;
 

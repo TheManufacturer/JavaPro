@@ -1,25 +1,31 @@
 public class Main {
-    public static void main(String[] args) { 
-        Shape cerchio = Factory.getShape(Enum1.CERCHIO);
-        cerchio.draw();
-        Shape quadrato = Factory.getShape(Enum1.QUADRATO);
-        quadrato.draw();
-        Shape triangolo = Factory.getShape(Enum1.TRIANGOLO);
-        triangolo.draw();
-    }
+    public static void main(String[] args) {
 
+        BuilderPersona personaBuilder1 = new BuilderPersona("Tobi", "SiLui");
+        personaBuilder1.setEta(16);
+
+        BuilderPersona personaBuilder2 = new BuilderPersona("Gon", "QuelloDiHxH");
+        personaBuilder2.setEta(30);
+        personaBuilder2.setIndirizzo("Foglia");
+
+        Persona persona1 = personaBuilder1.buildPersona();
+        Persona persona2 = personaBuilder2.buildPersona();
+
+        System.out.println("\n persona1 : " + persona1);
+        System.out.println("\n persona2 : " + persona2);
+        System.out.println("\n");
+    } 
 }
 
 /*
- * Crea un'interfaccia Shape e un metodo draw, crea 2 o più classi che
- * implementino Shape.
+ * Crea una classe Persona con i campi firstName, lastName, age e address, i
+ * getter and i setter
  * 
- * Cre una enum che abbia tutti i tipi di shape che hai creato ( cerchio,
- * rettangolo etc etc)
+ * Il costruttore accetterà un Builder in input
  * 
- * Crea una factory class che abbia un metodo che ritorni la forma corretta
- * (shape) in base all'enum in input.
+ * Creare una classe Builder che attraverso il costruttore e dei metodi
+ * specifici (tranne nome e cognome, gli altri campi sono opzionali) per
+ * costruire l'oggetto Persona.
  * 
- * Stampa a video il risultato della funzione draw di ogni shape creata
- * }
+ * Creare due oggetti Person e stamparli a video
  */
